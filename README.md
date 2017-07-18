@@ -15,6 +15,14 @@ their tests annotated rather than having to remember to provide annotation at th
 1. Drop into `src/github.com/calebamiles/example-e2e-tests-by-sig/test`
 1. Run `ginkgo -r` to see two simple examples of annotating your test suites
 
+```
+[1500420368] SIG Network - 0/0 specs  SUCCESS! 20.422µs PASS
+[1500420368] {"SIGName":"Kubernetes SIG Node","SIGOwners":["Dawn Chen","Derek Carr"]} - 0/0 specs  SUCCESS! 16.494µs PASS
+
+Ginkgo ran 2 suites in 3.500484284s
+Test Suite Passed
+```
+
 [Ginkgo]: https://github.com/onsi/ginkgo
 [go]: https://golang.org/
 [direnv]: https://direnv.net/
