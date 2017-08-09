@@ -13,14 +13,76 @@ their tests annotated rather than having to remember to provide annotation at th
 1. Ensure you have [go][] installed
 1. Install [direnv][]
 1. Drop into `src/github.com/calebamiles/example-e2e-tests-by-sig/test`
-1. Run `ginkgo -r` to see two simple examples of annotating your test suites
+1. Run `ginkgo -r --keepGoing` to see two simple examples of annotating your test suites
 
 ```
-[1500420368] SIG Network - 0/0 specs  SUCCESS! 20.422µs PASS
-[1500420368] {"SIGName":"Kubernetes SIG Node","SIGOwners":["Dawn Chen","Derek Carr"]} - 0/0 specs  SUCCESS! 16.494µs PASS
+[1502236921] SIG Network - 1/1 specs 
+------------------------------
+• Failure [0.000 seconds]
+Example [It] also fails 
+/home/caleb/workspace/example-e2e-by-sig/src/github.com/calebamiles/example-e2e-tests-by-sig/test/sig-network/example_test.go:10
 
-Ginkgo ran 2 suites in 3.500484284s
-Test Suite Passed
+  this test is flakey
+
+  /home/caleb/workspace/example-e2e-by-sig/src/github.com/calebamiles/example-e2e-tests-by-sig/test/sig-network/example_test.go:9
+------------------------------
+
+
+Summarizing 1 Failure:
+
+[Fail] Example [It] also fails 
+/home/caleb/workspace/example-e2e-by-sig/src/github.com/calebamiles/example-e2e-tests-by-sig/test/sig-network/example_test.go:9
+
+Ran 1 of 1 Specs in 0.000 seconds
+FAIL! -- 0 Passed | 1 Failed | 0 Pending | 0 Skipped --- FAIL: TestSigNetwork (0.00s)
+FAIL
+[1502236921] {"SIG":"SIG Node","Owners":[{"name":"Dawn Chen","GitHub":"someGitHubHandle","Slack":"someSlackID"},{"name":"Derek Carr","GitHub":"someGitHubHandle","Slack":"someSlackID"}]} - 1/1 specs 
+------------------------------
+• Failure [0.000 seconds]
+Example [It] fails 
+/home/caleb/workspace/example-e2e-by-sig/src/github.com/calebamiles/example-e2e-tests-by-sig/test/sig-node/example_test.go:11
+
+  we didn't get around to writing this test
+
+  /home/caleb/workspace/example-e2e-by-sig/src/github.com/calebamiles/example-e2e-tests-by-sig/test/sig-node/example_test.go:10
+------------------------------
+
+
+Summarizing 1 Failure:
+
+[Fail] Example [It] fails 
+/home/caleb/workspace/example-e2e-by-sig/src/github.com/calebamiles/example-e2e-tests-by-sig/test/sig-node/example_test.go:10
+
+Ran 1 of 1 Specs in 0.000 seconds
+FAIL! -- 0 Passed | 1 Failed | 0 Pending | 0 Skipped {
+	"Owner": {
+		"SIG": "SIG Node",
+		"Owners": [
+			{
+				"name": "Dawn Chen",
+				"GitHub": "someGitHubHandle",
+				"Slack": "someSlackID"
+			},
+			{
+				"name": "Derek Carr",
+				"GitHub": "someGitHubHandle",
+				"Slack": "someSlackID"
+			}
+		]
+	},
+	"test_failures": [
+		"/home/caleb/workspace/example-e2e-by-sig/src/github.com/calebamiles/example-e2e-tests-by-sig/test/sig-node/example_test.go:10"
+	]
+}
+--- FAIL: TestSigNode (0.00s)
+FAIL
+
+There were failures detected in the following suites:
+	sig-network ./sig-network
+	   sig-node ./sig-node
+
+Ginkgo ran 2 suites in 572.163765ms
+Test Suite Failed
 ```
 
 [Ginkgo]: https://github.com/onsi/ginkgo
